@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 
 public class WelcomeActivity extends AppCompatActivity {
     private Handler handler = new Handler();
+    private boolean isStartMain = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,9 +22,13 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void startMainActivity() {
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-        finish();
+
+        if(!isStartMain){
+            isStartMain = true;
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override
